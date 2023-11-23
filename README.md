@@ -1,5 +1,5 @@
 # HIT-SOAR
-Hit bi-semestrial project, Artificial intelligence powered Security orchestration, automation and response system.
+HIT 3rd year, bi-semestrial project, Artificial intelligence powered Security orchestration, automation and response system.
 
 
 Client-server based system for in-organization threat prevention and response.
