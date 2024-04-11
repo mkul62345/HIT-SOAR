@@ -1,0 +1,2 @@
+{"Microsoft-Client-Licensing-Platform%4Admin.evtx": "2024-04-01 16:37:57.421918"}
+{"Microsoft-Windows-AAD%4Operational.evtx": "2024-04-01 16:37:50.028800"}
