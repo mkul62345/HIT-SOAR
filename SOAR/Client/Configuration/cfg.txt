@@ -1,0 +1,3 @@
+{"Windows PowerShell.evtx": "2023-01-31 17:03:24.205710"}
+{"Microsoft-Client-Licensing-Platform%4Admin.evtx": "2024-04-01 16:37:57.421918"}
+{"Microsoft-Windows-AAD%4Operational.evtx": "2024-04-01 16:37:50.028800"}
