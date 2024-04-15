@@ -1,5 +1,5 @@
 from startup import init_from_config
-from flask import Flask , render_template, request, Response, redirect
+from flask import Flask , render_template, request, Response, redirect, send_file
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from db import *
 import json
@@ -75,7 +75,7 @@ def received_log():
 
     elif request.method == 'POST':
         #Insert log into db    
-        hostname = json.loads(request.json["data"])["Event"]["System"]["Computer"] #    request.json["data"]["Event"]["System"]["Computer"]
+        hostname = json.loads(request.json["data"])["Event"]["System"]["Computer"] 
         if hostname != None and identify_host(hostname ,app.config):     
             log_into_db(request.json ,app.config)
         else:
@@ -93,18 +93,19 @@ def received_log():
 #@jwt_required()
 def system_screen():
     if request.method == 'GET':
-        return Response(json.dumps(None), status=404, mimetype='application/json')   # (("Jeff","j@mail.com","asd123"),("don","d@mail.com","ads321"))
+        return Response(json.dumps(None), status=404, mimetype='application/json')  
     if request.method == 'POST':
         result = fetch_agents(app.config)
-        return render_template('table_display.html', headings= ("UUID", "Active"), data = result)   # (("Jeff","j@mail.com","asd123"),("don","d@mail.com","ads321"))
+        return render_template('table_display.html', headings= ("UUID", "Active"), data = result)   
 
 
 
-
-
-
-
-
+@app.route('/plot', methods=['GET','POST'])
+#@jwt_required()
+def plt():
+    if request.method == 'GET':
+        filename = 'S:\\HIT-SOAR\\SOAR\\Uploads\\jeff.jpeg' #Change to whatever is needed, placeholder method
+        return send_file(filename, mimetype='image/gif')
 
 
 

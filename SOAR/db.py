@@ -4,7 +4,7 @@ import string
 import csv
 from argon2 import PasswordHasher, exceptions
 
-UPLOADS_PATH = "S:\\SOAR\\Uploads\\" # Change according to need
+UPLOADS_PATH = "S:\\HIT-SOAR\\SOAR\\Uploads\\" # Change according to need
 SECRET_KEY = '@@##sfasfd321'  # Replace with a strong and unique secret key
 TOKEN_EXPIRATION_SECONDS = 3600  # Set the expiration time for the token (e.g., 1 hour)
 
@@ -229,7 +229,7 @@ def export_logs_csv(db_args):
             column_names = [i[0] for i in cursor.description]
             path = UPLOADS_PATH  + "exported.csv" 
             with open(path, "w") as write_to: 
-                result_csv = csv.writer(write_to) #use lineterminator = '\n' for windows 
+                result_csv = csv.writer(write_to, lineterminator = '\r\n') #use lineterminator = '\r\n' for windows 
                 result_csv.writerow(column_names)
                 for result in results:
                     result_csv.writerow(result.values())

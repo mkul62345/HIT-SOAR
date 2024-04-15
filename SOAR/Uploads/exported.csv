@@ -1,194 +1,522 @@
-id,createdat,logtext
-1,2024-04-11 11:36:09,This is a test log
-2,2024-04-01 16:37:57,"{
+id,createdat,logtext
+
+11,2023-01-31 17:03:22,"{
   ""Event"": {
     ""#attributes"": {
       ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
     },
     ""EventData"": {
-      ""LicenseId"": ""a900c622-99e6-0d09-3f2b-fc30e2f4563b"",
-      ""PackageName"": ""Microsoft.YourPhone_8wekyb3d8bbwe""
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""FileSystem"",
+          ""Started"",
+          ""\tProviderName=FileSystem\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=7\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
     },
     ""System"": {
-      ""Channel"": ""Microsoft-Client-Licensing-Platform/Admin"",
+      ""Channel"": ""Windows PowerShell"",
       ""Computer"": ""DESKTOP-Q3IFKSG"",
       ""Correlation"": null,
-      ""EventID"": 159,
-      ""EventRecordID"": 26569,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
+      },
+      ""EventRecordID"": 22,
       ""Execution"": {
         ""#attributes"": {
-          ""ProcessID"": 26548,
-          ""ThreadID"": 4428
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
         }
       },
-      ""Keywords"": ""0x2000000000000001"",
+      ""Keywords"": ""0x80000000000000"",
       ""Level"": 4,
       ""Opcode"": 0,
       ""Provider"": {
         ""#attributes"": {
-          ""Guid"": ""B6CC0D55-9ECC-49A8-B929-2B9022426F2A"",
-          ""Name"": ""Microsoft-Client-Licensing-Platform""
+          ""Name"": ""PowerShell""
         }
       },
-      ""Security"": {
-        ""#attributes"": {
-          ""UserID"": ""S-1-5-18""
-        }
-      },
-      ""Task"": 0,
+      ""Security"": null,
+      ""Task"": 6,
       ""TimeCreated"": {
         ""#attributes"": {
-          ""SystemTime"": ""2024-04-01T16:37:57.421916Z""
+          ""SystemTime"": ""2023-01-31T17:03:22.998210Z""
         }
       },
       ""Version"": 0
     }
   }
-}"
-3,2024-04-01 16:37:50,"{
+}"
+
+12,2023-01-31 17:03:22,"{
   ""Event"": {
     ""#attributes"": {
       ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
     },
     ""EventData"": {
-      ""AdditionalInformation"": ""Exception of type 'class HttpException' at XMLHTTPWebRequest.cpp, line: 184, method: XMLHTTPWebRequest::ReceiveResponse.\r\n\r\nLog: 0xcaa9004b Exception during nonce request.\r\nLogged at ProofOfPossessionTokenRequestBase.cpp, line: 116, method: ProofOfPossessionTokenRequestBase::RequestNonce.\r\n\r\nRequest: authority: https://login.microsoftonline.com/common, client: 26a7ee05-5602-4d76-a7ba-eae8b7b67941, redirect URI: ms-appx-web://Microsoft.AAD.BrokerPlugin/S-1-15-2-283421221-3183566570-1718213290-751554359-3541592344-2312209569-3374928651, resource: https://www.bing.com, correlation ID (request): 11beb60a-4e33-4c43-8dab-c2919dc26e34"",
-      ""Error"": 3399942148,
-      ""ErrorMessage"": ""The server or proxy was not found.""
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Function"",
+          ""Started"",
+          ""\tProviderName=Function\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=9\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
     },
     ""System"": {
-      ""Channel"": ""Microsoft-Windows-AAD/Operational"",
-      ""Computer"": ""DESKTOP-Q3IFKSG"",
-      ""Correlation"": {
-        ""#attributes"": {
-          ""ActivityID"": ""90361E29-8124-0007-6AA9-42902481DA01""
-        }
-      },
-      ""EventID"": 1098,
-      ""EventRecordID"": 9495,
-      ""Execution"": {
-        ""#attributes"": {
-          ""ProcessID"": 19688,
-          ""ThreadID"": 23496
-        }
-      },
-      ""Keywords"": ""0x4000000000000012"",
-      ""Level"": 2,
-      ""Opcode"": 0,
-      ""Provider"": {
-        ""#attributes"": {
-          ""Guid"": ""4DE9BC9C-B27A-43C9-8994-0915F1A5E24F"",
-          ""Name"": ""Microsoft-Windows-AAD""
-        }
-      },
-      ""Security"": {
-        ""#attributes"": {
-          ""UserID"": ""S-1-5-21-983048616-1879494994-765880907-1001""
-        }
-      },
-      ""Task"": 103,
-      ""TimeCreated"": {
-        ""#attributes"": {
-          ""SystemTime"": ""2024-04-01T16:37:50.028789Z""
-        }
-      },
-      ""Version"": 0
-    }
-  }
-}"
-4,2024-04-01 16:37:57,"{
-  ""Event"": {
-    ""#attributes"": {
-      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
-    },
-    ""EventData"": {
-      ""AssociateId"": ""a900c622-99e6-0d09-3f2b-fc30e2f4563b"",
-      ""LicenseId"": ""a900c622-99e6-0d09-3f2b-fc30e2f4563b"",
-      ""PackageName"": ""Microsoft.YourPhone_8wekyb3d8bbwe"",
-      ""UserId"": ""NULL""
-    },
-    ""System"": {
-      ""Channel"": ""Microsoft-Client-Licensing-Platform/Admin"",
+      ""Channel"": ""Windows PowerShell"",
       ""Computer"": ""DESKTOP-Q3IFKSG"",
       ""Correlation"": null,
-      ""EventID"": 117,
-      ""EventRecordID"": 26570,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
+      },
+      ""EventRecordID"": 23,
       ""Execution"": {
         ""#attributes"": {
-          ""ProcessID"": 26548,
-          ""ThreadID"": 4428
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
         }
       },
-      ""Keywords"": ""0x2000000000000001"",
+      ""Keywords"": ""0x80000000000000"",
       ""Level"": 4,
       ""Opcode"": 0,
       ""Provider"": {
         ""#attributes"": {
-          ""Guid"": ""B6CC0D55-9ECC-49A8-B929-2B9022426F2A"",
-          ""Name"": ""Microsoft-Client-Licensing-Platform""
+          ""Name"": ""PowerShell""
         }
       },
-      ""Security"": {
-        ""#attributes"": {
-          ""UserID"": ""S-1-5-18""
-        }
-      },
-      ""Task"": 0,
+      ""Security"": null,
+      ""Task"": 6,
       ""TimeCreated"": {
         ""#attributes"": {
-          ""SystemTime"": ""2024-04-01T16:37:57.421918Z""
+          ""SystemTime"": ""2023-01-31T17:03:22.998636Z""
         }
       },
       ""Version"": 0
     }
   }
-}"
-5,2024-04-01 16:37:50,"{
+}"
+
+13,2023-01-31 17:03:22,"{
   ""Event"": {
     ""#attributes"": {
       ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
     },
     ""EventData"": {
-      ""AdditionalInformation"": ""Exception of type 'class HttpException' at XMLHTTPWebRequest.cpp, line: 184, method: XMLHTTPWebRequest::ReceiveResponse.\r\n\r\nLog: 0xcaa9004b Exception during nonce request.\r\nLogged at ProofOfPossessionTokenRequestBase.cpp, line: 116, method: ProofOfPossessionTokenRequestBase::RequestNonce.\r\n\r\nRequest: authority: https://login.microsoftonline.com/common, client: 26a7ee05-5602-4d76-a7ba-eae8b7b67941, redirect URI: ms-appx-web://Microsoft.AAD.BrokerPlugin/S-1-15-2-283421221-3183566570-1718213290-751554359-3541592344-2312209569-3374928651, resource: 9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7, correlation ID (request): 498b86c7-6207-465a-8a6a-0fa5f2a506bf"",
-      ""Error"": 3399942148,
-      ""ErrorMessage"": ""The server or proxy was not found.""
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Variable"",
+          ""Started"",
+          ""\tProviderName=Variable\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=11\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
     },
     ""System"": {
-      ""Channel"": ""Microsoft-Windows-AAD/Operational"",
+      ""Channel"": ""Windows PowerShell"",
       ""Computer"": ""DESKTOP-Q3IFKSG"",
-      ""Correlation"": {
+      ""Correlation"": null,
+      ""EventID"": {
         ""#attributes"": {
-          ""ActivityID"": ""90361E29-8124-0011-F94E-64902481DA01""
-        }
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
       },
-      ""EventID"": 1098,
-      ""EventRecordID"": 9496,
+      ""EventRecordID"": 24,
       ""Execution"": {
         ""#attributes"": {
-          ""ProcessID"": 19688,
-          ""ThreadID"": 23464
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
         }
       },
-      ""Keywords"": ""0x4000000000000012"",
-      ""Level"": 2,
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
       ""Opcode"": 0,
       ""Provider"": {
         ""#attributes"": {
-          ""Guid"": ""4DE9BC9C-B27A-43C9-8994-0915F1A5E24F"",
-          ""Name"": ""Microsoft-Windows-AAD""
+          ""Name"": ""PowerShell""
         }
       },
-      ""Security"": {
-        ""#attributes"": {
-          ""UserID"": ""S-1-5-21-983048616-1879494994-765880907-1001""
-        }
-      },
-      ""Task"": 103,
+      ""Security"": null,
+      ""Task"": 6,
       ""TimeCreated"": {
         ""#attributes"": {
-          ""SystemTime"": ""2024-04-01T16:37:50.028800Z""
+          ""SystemTime"": ""2023-01-31T17:03:22.999107Z""
         }
       },
       ""Version"": 0
     }
   }
-}"
+}"
+
+14,2023-01-31 17:03:23,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Available"",
+          ""None"",
+          ""\tNewEngineState=Available\r\n\tPreviousEngineState=None\r\n\r\n\tSequenceNumber=13\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=5.1.22621.169\r\n\tRunspaceId=a865b74f-18c0-4857-8b49-82c1dfee27e2\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 400
+      },
+      ""EventRecordID"": 25,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 4,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:23.052788Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+15,2023-01-31 17:03:24,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""        Add-Type -AssemblyName System.IO.Compression\r\n"",
+          ""\tDetailSequence=1\r\n\tDetailTotal=1\r\n\r\n\tSequenceNumber=15\r\n\r\n\tUserId=WORKGROUP\\SYSTEM\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=5.1.22621.169\r\n\tRunspaceId=a865b74f-18c0-4857-8b49-82c1dfee27e2\r\n\tPipelineId=1\r\n\tScriptName=C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.PowerShell.Archive\\Microsoft.PowerShell.Archive.psm1\r\n\tCommandLine=        Add-Type -AssemblyName System.IO.Compression\r\n"",
+          ""CommandInvocation(Add-Type): \""Add-Type\""\r\nParameterBinding(Add-Type): name=\""AssemblyName\""; value=\""System.IO.Compression\""\r\n""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 800
+      },
+      ""EventRecordID"": 26,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 8,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:24.203163Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+16,2023-01-31 17:03:24,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""        Add-Type -AssemblyName System.IO.Compression.FileSystem\r\n"",
+          ""\tDetailSequence=1\r\n\tDetailTotal=1\r\n\r\n\tSequenceNumber=17\r\n\r\n\tUserId=WORKGROUP\\SYSTEM\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=5.1.22621.169\r\n\tRunspaceId=a865b74f-18c0-4857-8b49-82c1dfee27e2\r\n\tPipelineId=1\r\n\tScriptName=C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\Microsoft.PowerShell.Archive\\Microsoft.PowerShell.Archive.psm1\r\n\tCommandLine=        Add-Type -AssemblyName System.IO.Compression.FileSystem\r\n"",
+          ""CommandInvocation(Add-Type): \""Add-Type\""\r\nParameterBinding(Add-Type): name=\""AssemblyName\""; value=\""System.IO.Compression.FileSystem\""\r\n""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 800
+      },
+      ""EventRecordID"": 27,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 8,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:24.205710Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+17,2023-01-31 17:03:24,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Stopped"",
+          ""Available"",
+          ""\tNewEngineState=Stopped\r\n\tPreviousEngineState=Available\r\n\r\n\tSequenceNumber=19\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=052dd3ed-c343-4648-ad30-6fc167480ac1\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=5.1.22621.169\r\n\tRunspaceId=a865b74f-18c0-4857-8b49-82c1dfee27e2\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 403
+      },
+      ""EventRecordID"": 28,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10428,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 4,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:24.301038Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+18,2023-01-31 17:03:25,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Registry"",
+          ""Started"",
+          ""\tProviderName=Registry\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=1\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=247bd13a-0841-4fc1-bdb0-0492aa604f95\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
+      },
+      ""EventRecordID"": 29,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10804,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 6,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:25.241765Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+19,2023-01-31 17:03:25,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Alias"",
+          ""Started"",
+          ""\tProviderName=Alias\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=3\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=247bd13a-0841-4fc1-bdb0-0492aa604f95\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
+      },
+      ""EventRecordID"": 30,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10804,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 6,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:25.241958Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+
+20,2023-01-31 17:03:25,"{
+  ""Event"": {
+    ""#attributes"": {
+      ""xmlns"": ""http://schemas.microsoft.com/win/2004/08/events/event""
+    },
+    ""EventData"": {
+      ""Binary"": null,
+      ""Data"": {
+        ""#text"": [
+          ""Environment"",
+          ""Started"",
+          ""\tProviderName=Environment\r\n\tNewProviderState=Started\r\n\r\n\tSequenceNumber=5\r\n\r\n\tHostName=ConsoleHost\r\n\tHostVersion=5.1.22621.169\r\n\tHostId=247bd13a-0841-4fc1-bdb0-0492aa604f95\r\n\tHostApplication=PowerShell -WindowStyle Hidden Expand-Archive -LiteralPath 'C:\\Program Files (x86)\\ASUS\\ROGLSLoader.zip' -DestinationPath 'C:\\Program Files (x86)\\ASUS' -Force\r\n\tEngineVersion=\r\n\tRunspaceId=\r\n\tPipelineId=\r\n\tCommandName=\r\n\tCommandType=\r\n\tScriptName=\r\n\tCommandPath=\r\n\tCommandLine=""
+        ]
+      }
+    },
+    ""System"": {
+      ""Channel"": ""Windows PowerShell"",
+      ""Computer"": ""DESKTOP-Q3IFKSG"",
+      ""Correlation"": null,
+      ""EventID"": {
+        ""#attributes"": {
+          ""Qualifiers"": 0
+        },
+        ""#text"": 600
+      },
+      ""EventRecordID"": 31,
+      ""Execution"": {
+        ""#attributes"": {
+          ""ProcessID"": 10804,
+          ""ThreadID"": 0
+        }
+      },
+      ""Keywords"": ""0x80000000000000"",
+      ""Level"": 4,
+      ""Opcode"": 0,
+      ""Provider"": {
+        ""#attributes"": {
+          ""Name"": ""PowerShell""
+        }
+      },
+      ""Security"": null,
+      ""Task"": 6,
+      ""TimeCreated"": {
+        ""#attributes"": {
+          ""SystemTime"": ""2023-01-31T17:03:25.242039Z""
+        }
+      },
+      ""Version"": 0
+    }
+  }
+}"
+

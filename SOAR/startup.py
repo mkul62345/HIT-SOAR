@@ -1,5 +1,5 @@
 def init_from_config():
-    CONFIG_PATH = "S:\\SOAR\\cfg.txt" #Change to local
+    CONFIG_PATH = "S:\\HIT-SOAR\\SOAR\\cfg.txt" #Change to local
     date_ref_dict = {}
 
     #We merge using a dictionary built from both the changes and existing data-
