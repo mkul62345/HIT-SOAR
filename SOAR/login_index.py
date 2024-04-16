@@ -83,6 +83,18 @@ def received_log():
 
         return Response(json.dumps(None), status=200, mimetype='application/json') 
 
+    
+@app.route('/block', methods=['GET','POST'])
+def pinged():
+    if request.method == 'GET':
+        return Response(json.dumps(None), status=200, mimetype='application/json') 
+    
+    elif request.method == 'POST':
+        arg = json.loads(request.form['agent-select'].replace("'",'"'))
+        if block_agent(arg['uuid'] ,app.config):
+            return redirect("/system_screen", code=307) 
+
+        return Response(json.dumps(None), status=400, mimetype='application/json') 
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,7 +108,7 @@ def system_screen():
         return Response(json.dumps(None), status=404, mimetype='application/json')  
     if request.method == 'POST':
         result = fetch_agents(app.config)
-        return render_template('table_display.html', headings= ("UUID", "Active"), data = result)   
+        return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result)   
 
 
 

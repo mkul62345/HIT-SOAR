@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Client Insertion System</title>
+    <title>Monitoring</title>
     <style>
         a:link {
             color: rgb(248, 248, 248);
@@ -64,27 +64,54 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
+        img{
+            max-width:250px;
+            max-height:250px;
+        }
+
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <form method="POST" action="/block">
+      <h2>User Control</h2>
+  
+      <label for="agent-select">Select:</label>
+      <select name="agent-select" id="agent-select">
+      {% for option in options %}
+        <option value="{{ option }}">{{ option['uuid'] }}</option>
+      {% endfor %}
+      </select>
+      <br>
+      <br>
+      <br>
+      <button type="submit">Toggle activation</button>
+      <br>
+      <br>
+    </form>
+  
 
-<form method="GET" action="/">
-    <h2>Logged in! more to come...</h2>
+    <form>
+      <table>
+        <tr>
+          {% for header in headings %}
+            <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+        {% for row in data %}
+        <tr>
+          {% for cell in row.values() %}
+            <td>{{ cell }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
 
-    <button type="submit">Back to login</button>
-    <br>
-    <br>
-</form>
-
-
-<script>
-    document.getElementById('newClientForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Reset the form
-        this.reset();
-    });
-</script>
-
-</body>
+    <form>
+      <div>            
+        <img src=/plot class="image"/>
+      </div>
+    </form>
+  </body>
 </html>

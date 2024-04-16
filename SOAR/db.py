@@ -245,6 +245,30 @@ def export_logs_csv(db_args):
         if connection:
             connection.close()
 
+def block_agent(agentid, db_args):
+    # Connect to the database
+    connection = connect_to_db(db_args)
+    try:
+        with connection.cursor() as cursor:           
+            # Check if the username and password match a user in the database
+            sql = "SELECT active FROM agent WHERE uuid=%s"
+            cursor.execute(sql, (agentid , ))
+            result = cursor.fetchone()
+
+            sqlUpdate = "UPDATE agent SET active =%s WHERE uuid =%s"
+            cursor.execute(sqlUpdate, ( (not result['active']), agentid))
+
+            connection.commit()
+            #On success return 1
+            return result
+                
+    except (pymysql.Error) as e:
+        print(f"Error: {e}")
+        return None
+
+    finally:
+        if connection:
+            connection.close()
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

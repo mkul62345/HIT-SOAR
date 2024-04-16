@@ -2,7 +2,7 @@ import json
 import time
 
 def init_from_config():
-    DIRECTORY_PATH = "S:\\SOAR\\Client\\Configuration"
+    DIRECTORY_PATH = "S:\\HIT-SOAR\\SOAR\\Client\\Configuration"
     CONFIG_PATH = DIRECTORY_PATH + "\\cfg.txt"
     CHANGELOG_PATH = DIRECTORY_PATH + "\\changelog.txt"
     date_ref_dict = {}
