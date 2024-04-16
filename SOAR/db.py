@@ -295,7 +295,31 @@ def validate_cookie(context, db_args):
     finally:
         if connection:
             connection.close()
+
+def ping_db(db_args):
+    # Connect to the database
+    connection = connect_to_db(db_args)
+    try:
+        with connection.cursor() as cursor:           
+            # Check if the username and password match a user in the database
+            sql = "SELECT id FROM logs"
+            cursor.execute(sql, )
+            result = cursor.fetchone()
+
+            if result != None: #Can add logic to split auth levels
+                #On success return 1
+                return 1
             
+            return 0
+                
+    except (pymysql.Error) as e:
+        print(f"Error: {e}")
+        return 0
+
+    finally:
+        if connection:
+            connection.close()
+
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

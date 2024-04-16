@@ -10,7 +10,7 @@ ALLOWED_EXTENSIONS = {'txt', 'csv', 'jpeg'}
 
 app = Flask(__name__)
 cfg_dict = init_from_config()
-app.secret_key = "DROR" # Change this to a secure random key in production
+app.config['SECRET_KEY'] = cfg_dict.get('SECRET_KEY')   # Change this to a secure random key in production
 app.config['UPLOAD_FOLDER'] = cfg_dict.get('UPLOAD_FOLDER')
 app.config['JWT_SECRET_KEY'] = cfg_dict.get('JWT_SECRET_KEY')  # Change this to a secure random key in production
 app.config['MYSQL_HOST'] = cfg_dict.get('HOST')
@@ -97,13 +97,25 @@ def block_command():
 @app.route('/system_screen', methods=['GET'])
 def system_screen():
     if request.method == 'GET':
-        if validate_cookie( request.cookies.get('access_token') ,app.config):
-            result = fetch_agents(app.config)
-            return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result)   
-        return Response(json.dumps(None), status=404, mimetype='application/json')  
-      
-    return Response(json.dumps(None), status=401, mimetype='application/json') 
+        try:
+            if validate_cookie( request.cookies.get('access_token') ,app.config):
+                result = fetch_agents(app.config)
+                return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result) 
+
+        except Exception as e:
+            print(f"Error: {e}")
+            return Response(json.dumps(None), status=401, mimetype='application/json') 
+       
+    return Response(json.dumps(None), status=404, mimetype='application/json') 
     
+@app.route('/dbstatus', methods=['GET'])
+def pingdb():
+    if request.method == 'GET':
+        if ping_db(app.config):
+            return Response(json.dumps(None), status=200, mimetype='application/json')  
+      
+    return Response(json.dumps(None), status=404, mimetype='application/json') 
+
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

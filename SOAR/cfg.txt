@@ -4,3 +4,4 @@
 {"DB": "USERS"}
 {"JWT_SECRET_KEY": "7$*&?>fhd3433@#4227"}
 {"UPLOAD_FOLDER": "S:\\HIT-SOAR\\SOAR\\Uploads\\"}
+{"SECRET_KEY": "cc890b24bb2aa988"}
