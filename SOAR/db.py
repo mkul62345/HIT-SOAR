@@ -2,12 +2,12 @@ import pymysql.cursors
 import random
 import string
 import csv
+import time
 from argon2 import PasswordHasher, exceptions
 from flask_jwt_extended import decode_token
 
+
 UPLOADS_PATH = "S:\\HIT-SOAR\\SOAR\\Uploads\\" # Change according to need
-SECRET_KEY = '@@##sfasfd321'  # Replace with a strong and unique secret key
-TOKEN_EXPIRATION_SECONDS = 3600  # Set the expiration time for the token (e.g., 1 hour)
 
 def connect_to_db(config):
     host = config['MYSQL_HOST']
@@ -278,11 +278,11 @@ def validate_cookie(context, db_args):
         with connection.cursor() as cursor:           
             # Check if the username and password match a user in the database
             sql = "SELECT role FROM user WHERE username=%s"
-
-            cursor.execute(sql, (decode_token(context)['sub'] , ))
+            token = decode_token(context)
+            cursor.execute(sql, (token['sub'] , ))
             result = cursor.fetchone()
 
-            if result: #Can add logic to split auth levels
+            if result and float(token['exp']) > time.time(): #Can add logic to split auth levels
                 #On success return 1
                 return 1
             

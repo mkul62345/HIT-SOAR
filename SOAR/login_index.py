@@ -3,6 +3,7 @@ from flask import Flask , render_template, request, Response, redirect, send_fil
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from db import *
 import json
+import datetime
  
 
 ALLOWED_EXTENSIONS = {'txt', 'csv', 'jpeg'}
@@ -17,6 +18,7 @@ app.config['MYSQL_USER'] = cfg_dict.get('USER')
 app.config['MYSQL_PASSWORD'] = cfg_dict.get('PASSWORD')
 app.config['MYSQL_DB'] = cfg_dict.get('DB')
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(seconds=600)
 jwt = JWTManager(app)
 
 
@@ -30,7 +32,7 @@ def index():
         password = request.form['password']
         if validate_password(username, password, app.config):
             access_token = create_access_token(identity=username)
-            response = make_response(redirect("/system_screen", code=307))
+            response = make_response(redirect("/system_screen"))
             response.set_cookie('access_token', access_token)
             return response 
         return render_template('login.html') #Redirect nowhere, render error message
@@ -67,12 +69,9 @@ def change_password_():
                 return render_template('login.html') 
         return render_template('change_password.html') #Redirect nowhere, render error message
     
-@app.route('/logger', methods=['GET','POST'])
+@app.route('/logger', methods=['POST'])
 def received_log():
-    if request.method == 'GET':
-        return Response(json.dumps(None), status=404, mimetype='application/json') 
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
         #Insert log into db    
         hostname = json.loads(request.json["data"])["Event"]["System"]["Computer"] 
         if hostname != None and identify_host(hostname ,app.config):     
@@ -91,27 +90,26 @@ def block_command():
         if validate_cookie( request.cookies.get('access_token') ,app.config):
             arg = json.loads(request.form['agent-select'].replace("'",'"'))
             if block_agent(arg['uuid'] ,app.config):
-                return redirect("/system_screen", code=307) 
+                return redirect("/system_screen") 
             return Response(json.dumps(None), status=400, mimetype='application/json') 
         return Response(json.dumps(None), status=401, mimetype='application/json')
 
-@app.route('/system_screen', methods=['GET','POST'])
+@app.route('/system_screen', methods=['GET'])
 def system_screen():
     if request.method == 'GET':
-        return Response(json.dumps(None), status=404, mimetype='application/json')  
-    if request.method == 'POST':
         if validate_cookie( request.cookies.get('access_token') ,app.config):
             result = fetch_agents(app.config)
             return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result)   
-        return Response(json.dumps(None), status=401, mimetype='application/json') 
+        return Response(json.dumps(None), status=404, mimetype='application/json')  
+      
+    return Response(json.dumps(None), status=401, mimetype='application/json') 
     
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-@app.route('/plot', methods=['GET','POST'])
-#@jwt_required()
+@app.route('/plot', methods=['GET'])
 def plt():
     if request.method == 'GET':
         filename = 'S:\\HIT-SOAR\\SOAR\\Uploads\\jeff.jpeg' #Change to whatever is needed, placeholder method
