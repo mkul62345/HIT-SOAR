@@ -3,6 +3,7 @@ import random
 import string
 import csv
 from argon2 import PasswordHasher, exceptions
+from flask_jwt_extended import decode_token
 
 UPLOADS_PATH = "S:\\HIT-SOAR\\SOAR\\Uploads\\" # Change according to need
 SECRET_KEY = '@@##sfasfd321'  # Replace with a strong and unique secret key
@@ -270,6 +271,31 @@ def block_agent(agentid, db_args):
         if connection:
             connection.close()
 
+def validate_cookie(context, db_args):
+    # Connect to the database
+    connection = connect_to_db(db_args)
+    try:
+        with connection.cursor() as cursor:           
+            # Check if the username and password match a user in the database
+            sql = "SELECT role FROM user WHERE username=%s"
+
+            cursor.execute(sql, (decode_token(context)['sub'] , ))
+            result = cursor.fetchone()
+
+            if result: #Can add logic to split auth levels
+                #On success return 1
+                return 1
+            
+            return 0
+                
+    except (pymysql.Error) as e:
+        print(f"Error: {e}")
+        return 0
+
+    finally:
+        if connection:
+            connection.close()
+            
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

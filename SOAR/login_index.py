@@ -1,19 +1,17 @@
 from startup import init_from_config
-from flask import Flask , render_template, request, Response, redirect, send_file
+from flask import Flask , render_template, request, Response, redirect, send_file, jsonify, url_for, make_response
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from db import *
 import json
  
-UPLOAD_FOLDER = "S:\\SOAR\\Uploads\\" #Change to local 
-ALLOWED_EXTENSIONS = {'txt'}
 
-
+ALLOWED_EXTENSIONS = {'txt', 'csv', 'jpeg'}
 
 app = Flask(__name__)
 cfg_dict = init_from_config()
 app.secret_key = "DROR" # Change this to a secure random key in production
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['JWT_SECRET_KEY'] = '7$*&?>fhd3433@#4227'  # Change this to a secure random key in production
+app.config['UPLOAD_FOLDER'] = cfg_dict.get('UPLOAD_FOLDER')
+app.config['JWT_SECRET_KEY'] = cfg_dict.get('JWT_SECRET_KEY')  # Change this to a secure random key in production
 app.config['MYSQL_HOST'] = cfg_dict.get('HOST')
 app.config['MYSQL_USER'] = cfg_dict.get('USER')
 app.config['MYSQL_PASSWORD'] = cfg_dict.get('PASSWORD')
@@ -31,9 +29,10 @@ def index():
         username = request.form['username']
         password = request.form['password']
         if validate_password(username, password, app.config):
-        #if True: #Change this once db is up
             access_token = create_access_token(identity=username)
-            return redirect("/system_screen", code=307) #render_template('system_screen.html')
+            response = make_response(redirect("/system_screen", code=307))
+            response.set_cookie('access_token', access_token)
+            return response 
         return render_template('login.html') #Redirect nowhere, render error message
 
 @app.route('/register', methods=['GET','POST'])
@@ -83,33 +82,32 @@ def received_log():
 
         return Response(json.dumps(None), status=200, mimetype='application/json') 
 
-    
 @app.route('/block', methods=['GET','POST'])
-def pinged():
+def block_command():
     if request.method == 'GET':
-        return Response(json.dumps(None), status=200, mimetype='application/json') 
+        return Response(json.dumps(None), status=200, mimetype='application/json')   #Effectively just ping
     
     elif request.method == 'POST':
-        arg = json.loads(request.form['agent-select'].replace("'",'"'))
-        if block_agent(arg['uuid'] ,app.config):
-            return redirect("/system_screen", code=307) 
-
-        return Response(json.dumps(None), status=400, mimetype='application/json') 
-
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+        if validate_cookie( request.cookies.get('access_token') ,app.config):
+            arg = json.loads(request.form['agent-select'].replace("'",'"'))
+            if block_agent(arg['uuid'] ,app.config):
+                return redirect("/system_screen", code=307) 
+            return Response(json.dumps(None), status=400, mimetype='application/json') 
+        return Response(json.dumps(None), status=401, mimetype='application/json')
 
 @app.route('/system_screen', methods=['GET','POST'])
-#@jwt_required()
 def system_screen():
     if request.method == 'GET':
         return Response(json.dumps(None), status=404, mimetype='application/json')  
     if request.method == 'POST':
-        result = fetch_agents(app.config)
-        return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result)   
-
+        if validate_cookie( request.cookies.get('access_token') ,app.config):
+            result = fetch_agents(app.config)
+            return render_template('system_screen.html', headings= ("UUID", "Active"), data = result, options = result)   
+        return Response(json.dumps(None), status=401, mimetype='application/json') 
+    
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 @app.route('/plot', methods=['GET','POST'])
