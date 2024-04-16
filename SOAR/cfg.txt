@@ -2,3 +2,5 @@
 {"USER": "root"}
 {"PASSWORD": "root"}
 {"DB": "USERS"}
+{"JWT_SECRET_KEY": "7$*&?>fhd3433@#4227"}
+{"UPLOAD_FOLDER": "S:\\HIT-SOAR\\SOAR\\Uploads\\"}
